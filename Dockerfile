@@ -19,6 +19,18 @@ WORKDIR /app
 COPY --chown=user requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir \
+    voila>=0.5,<0.7 \
+    ipywidgets>=8.0 \
+    ipympl==0.9.4 \
+    notebook>=6.5 \
+    matplotlib==3.8.1
+
+RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix
+RUN jupyter nbextension enable --py ipympl --sys-prefix
+RUN jupyter serverextension enable --py voila --sys-prefix
+    
+
 
 # Copy notebook and other files
 COPY --chown=user . /app

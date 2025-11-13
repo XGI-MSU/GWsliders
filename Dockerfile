@@ -22,11 +22,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Enable nbextensions as root (removed ipympl line)
-RUN jupyter nbextension install --py widgetsnbextension --sys-prefix && \
-    jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
-    jupyter serverextension enable --py voila --sys-prefix
-
 # Create non-root user for runtime
 RUN useradd -m -u 1000 user
 USER user

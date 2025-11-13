@@ -5,6 +5,8 @@
 # matplotlib.use('widget')  # Use 'widget' instead of the long module path
 
 
+import matplotlib
+matplotlib.use("module://ipympl.backend_nbagg")
 import matplotlib.pyplot as plt
 from widgets import *
 from matched_filter import *

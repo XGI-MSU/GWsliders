@@ -1,9 +1,9 @@
 '''Main python file to run GW slider.'''
-import warnings
-warnings.filterwarnings('ignore')
+'''Main python file to run GW slider.'''
+# from IPython.display import display
+# import matplotlib
+# matplotlib.use('widget')  # Use 'widget' instead of the long module path
 
-import matplotlib
-matplotlib.use('module://ipympl.backend_nbagg')
 
 import matplotlib.pyplot as plt
 from widgets import *
@@ -351,3 +351,4 @@ def on_button_click(event, button_to_change):
     return
 
 
+# display(fig)

@@ -343,5 +343,5 @@ def on_button_click(event, button_to_change):
     button_to_change.color = 'C2' 
     fig.canvas.draw_idle() 
     return
-plt.show()
+
 

@@ -2,13 +2,13 @@
 # you will also find guides on how best to write your Dockerfile
 
 FROM python:3.9
+FROM python:3.9
 
-# Add a user
+# Create non-root user
 RUN useradd -m -u 1000 user
 USER user
 ENV PATH="/home/user/.local/bin:$PATH"
 
-# Set working directory
 WORKDIR /app
 
 # Install dependencies
@@ -18,8 +18,6 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 # Copy app files
 COPY --chown=user . /app
 
-# Serve the notebook with Voila instead of uvicorn
-CMD bash -c "voila app.ipynb --port=$PORT --no-browser --strip_sources=True --Voila.ip=0.0.0.0"
-
-
+# Run Voila (default to port 7860 if $PORT is not set)
+CMD bash -c "voila app.ipynb --port=${PORT:-7860} --no-browser --strip_sources=True --Voila.ip=0.0.0.0"
 

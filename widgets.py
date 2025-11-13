@@ -23,7 +23,7 @@ def make_checkboxes(fig):
     chirp_q_label = r'Use $\mathcal{M}$ and $q$'
     plus_minus_label = r'Use $\chi_+$ and $\chi_-$'
     real_data_label = 'Use Real Data'
-    det_label= 'Toggle Detector (L1, H1)'
+    det_label= 'Detector (L1, H1)'
     residual_label= 'Residuals'
     checkbox_labels = [chirp_q_label, plus_minus_label, real_data_label, det_label, residual_label]
     # checkboxes start unchecked

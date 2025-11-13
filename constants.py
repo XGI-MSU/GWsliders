@@ -106,6 +106,8 @@ df = np.abs(freqs[1] - freqs[0])
 checkbox_rect = [0.05, 0.75, 0.2, 0.2]
 menu_rect= [0.05, 0.5, 0.2, 0.2]
 
+
+
 # slider rectangles for plotting
 slider1_rect = [0.15, 0.22, 0.65, 0.03]
 slider2_rect = [0.15, 0.18, 0.65, 0.03]

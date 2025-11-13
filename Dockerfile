@@ -21,12 +21,7 @@ COPY requirements.txt .
 # Install all Python packages as root
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt \
-    && pip install --no-cache-dir \
-        voila>=0.5,<0.7 \
-        ipywidgets>=8.0 \
-        ipympl==0.9.4 \
-        notebook>=6.5 \
-        matplotlib==3.8.1
+   
 
 # Enable nbextensions as root
 RUN jupyter nbextension install --py widgetsnbextension --sys-prefix \

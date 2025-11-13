@@ -19,6 +19,7 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY --chown=user . /app
 
 # Serve the notebook with Voila instead of uvicorn
-CMD ["voila", "app.ipynb", "--port=$PORT", "--no-browser", "--strip_sources=True", "--Voila.ip=0.0.0.0"]
+CMD bash -c "voila app.ipynb --port=$PORT --no-browser --strip_sources=True --Voila.ip=0.0.0.0"
+
 
 

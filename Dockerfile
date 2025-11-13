@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir --upgrade pip \
 COPY --chown=user . /app
 
 # Run Voila
-ENTRYPOINT ["voila", "app.ipynb", "--no-browser", "--Voila.ip=0.0.0.0"]
+ENTRYPOINT ["voila", "notebook.ipynb", "--no-browser", "--Voila.ip=0.0.0.0"]
 CMD ["--port=7860"]
 
 

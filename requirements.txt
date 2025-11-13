@@ -1,15 +1,19 @@
 
+# Core scientific packages
 numpy>=1.22,<2.1
 scipy==1.15.3
 matplotlib==3.8.1
-h5py==3.12.1
 numba==0.60.0
-#pycbc==2.7.2
+h5py==3.12.1
+
+# GW/astro packages
+pycbc==2.7.2
 readligo==0.6.1
 wget==3.2
 interpolation==2.2.7
+
+# Jupyter / Voila support
 notebook>=6.5
 ipywidgets>=8.0
-#ipympl==0.9.4
-jupyterlab
+ipympl==0.9.4
 voila>=0.5,<0.7

@@ -18,7 +18,7 @@ plt.close('all')
 fig, ax = plt.subplots(figsize=(10, 6))
 
 # adjust plot area
-fig.subplots_adjust(left=0.3, bottom=0.3, right=0.95, top=0.95)
+fig.subplots_adjust(left=0.3, bottom=0.3, right=0.95, top=0.97)
 
 # make checkboxes
 checkboxes, buttons, buttons1, buttons2, buttons3, buttons4, buttons5, buttons6, buttons7 = make_checkboxes(fig)

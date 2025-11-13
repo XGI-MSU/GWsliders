@@ -1,4 +1,10 @@
 '''Main python file to run GW slider.'''
+import warnings
+warnings.filterwarnings('ignore')
+
+import matplotlib
+matplotlib.use('module://ipympl.backend_nbagg')
+
 import matplotlib.pyplot as plt
 from widgets import *
 from matched_filter import *

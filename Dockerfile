@@ -19,15 +19,13 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install all Python packages as root
-RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt \
-   
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Enable nbextensions as root
-RUN jupyter nbextension install --py widgetsnbextension --sys-prefix \
-    && jupyter nbextension enable --py widgetsnbextension --sys-prefix \
-    && jupyter nbextension enable --py ipympl --sys-prefix \
-    && jupyter serverextension enable --py voila --sys-prefix
+# Enable nbextensions as root (removed ipympl line)
+RUN jupyter nbextension install --py widgetsnbextension --sys-prefix && \
+    jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
+    jupyter serverextension enable --py voila --sys-prefix
 
 # Create non-root user for runtime
 RUN useradd -m -u 1000 user
@@ -37,8 +35,7 @@ USER user
 COPY --chown=user:user . /app
 
 # Run Voila
-ENTRYPOINT ["voila", "notebook.ipynb", "--no-browser", "--Voila.ip=0.0.0.0"]
-CMD ["--port=7860"]
+CMD ["voila", "notebook.ipynb", "--no-browser", "--Voila.ip=0.0.0.0", "--port=7860"]
 
 
 

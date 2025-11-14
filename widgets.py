@@ -33,7 +33,7 @@ def make_checkboxes(fig):
     #create buttons
     button_ax = fig.add_axes(button_signal)
     button_ax.set_visible(False)  # hidden initially
-    buttons = Button(button_ax, 'GW150914', hovercolor='0.97', )
+    buttons = Button(button_ax, 'GW150914', hovercolor='0.97' )
 
     button1_ax = fig.add_axes(button1_signal)
     button1_ax.set_visible(False)  # hidden initially
@@ -155,6 +155,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
     # remove tick marking initial position of sliders
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
+        slider.label.set_fontsize(4)
     return [slider_axes, sliders]
 
 

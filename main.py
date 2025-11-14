@@ -16,7 +16,7 @@ plt.close('all')
 
 # setup main plot
 #fig, ax = plt.subplots(figsize=(5, 2), dpi= 150)
-fig, ax = plt.subplots(figsize=(7, 4), dpi= 200)
+fig, ax = plt.subplots(figsize=(7, 4), dpi= 170)
 
 # adjust plot area
 fig.subplots_adjust(left=0.3, bottom=0.32, right=0.95, top=0.97)
@@ -44,8 +44,8 @@ data_line, = ax.plot(times, data, color='Black', label=f'{det} data', alpha=0.5)
 fit_line, = ax.plot(times, fit, color='C2', label='fit')
 residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label= 'residual')
 residual_line.set_visible(False)
-ax.set_xlabel('time [s]')
-ax.set_ylabel('strain')
+ax.set_xlabel('time [s]', fontsize=8)
+ax.set_ylabel('strain', fontsize=8)
 ax.tick_params(axis='both', labelsize=6)
 ax.legend(loc='upper left')
 ax.set_xlim(0.30, 0.50)

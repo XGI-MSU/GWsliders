@@ -55,7 +55,7 @@ error_text = fig.text(0.05, 0.1, 'Spins not in domain.', transform=ax.transAxes)
 error_text.set_visible(False)
 
 #chi-squared text box 
-chi_text = fig.text(0.35, 0.35, rf'$\rho = {round(SNRmax, 3)}$', fontsize= 5)
+chi_text = fig.text(0.35, 0.35, rf'$\rho = {round(SNRmax, 3)}$')
 
 # function to handle checkbox changes
 def checkbox_update(val):

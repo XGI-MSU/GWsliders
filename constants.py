@@ -149,3 +149,10 @@ amp_label= r'amplitude'
 phase_label= r'phase'
 det_label= r'Livingston Detector'
 
+m1_label.set_fontsize(4)
+m2_label.set_fontsize(4)
+chi1_label.set_fontsize(4)
+chi2_label.set_fontsize(4)
+amp_label.set_fontsize(4)
+phase_label.set_fontsize(4)
+det_label.set_fontsize(4)

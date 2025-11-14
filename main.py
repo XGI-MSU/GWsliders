@@ -40,21 +40,21 @@ init_params = get_comp_params(sliders)
 # plot data and fit
 fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(init_params, GW_signal, det)
 residuals = data - fit
-data_line, = ax.plot(times, data, color='Black', label=f'{det} data', alpha=0.5)
-fit_line, = ax.plot(times, fit, color='C2', label='fit')
-residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label= 'residual')
+data_line, = ax.plot(times, data, color='Black', label=f'{det} data', alpha=0.5, fontsize= 4)
+fit_line, = ax.plot(times, fit, color='C2', label='fit', fontsize= 4)
+residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label= 'residual', fontsize= 4)
 residual_line.set_visible(False)
-ax.set_xlabel('time [s]')
-ax.set_ylabel('strain')
+ax.set_xlabel('time [s]', fontsize= 4)
+ax.set_ylabel('strain', fontsize= 4)
 ax.legend(loc='upper left')
 ax.set_xlim(0.30, 0.50)
 
 # make error message if spins are outside domain
-error_text = fig.text(0.05, 0.1, 'Spins not in domain.', transform=ax.transAxes, fontsize=10)
+error_text = fig.text(0.05, 0.1, 'Spins not in domain.', transform=ax.transAxes, fontsize=4)
 error_text.set_visible(False)
 
 #chi-squared text box 
-chi_text = fig.text(0.35, 0.35, rf'$\rho = {round(SNRmax, 3)}$')
+chi_text = fig.text(0.35, 0.35, rf'$\rho = {round(SNRmax, 3)}$', fontsize=4)
 
 # function to handle checkbox changes
 def checkbox_update(val):

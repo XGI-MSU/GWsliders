@@ -33,7 +33,7 @@ def make_checkboxes(fig):
     #create buttons
     button_ax = fig.add_axes(button_signal)
     button_ax.set_visible(False)  # hidden initially
-    buttons = Button(button_ax, 'GW150914', hovercolor='0.97')
+    buttons = Button(button_ax, 'GW150914', hovercolor='0.97' )
 
     button1_ax = fig.add_axes(button1_signal)
     button1_ax.set_visible(False)  # hidden initially
@@ -155,13 +155,14 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
     # remove tick marking initial position of sliders
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
+        #slider.label.set_fontsize(5)
     return [slider_axes, sliders]
 
 
 # make button to go to correct (or MAP) parameter values
 def make_button(fig):
     button_ax = fig.add_axes(button_rect)
-    return Button(button_ax, 'Go to Reference Parameters', hovercolor='0.975')
+    return Button(button_ax, 'Go to Reference Parameters', hovercolor='0.975', fontsize=4)
 
 
 # function to get component parameters from sliders and checkboxes

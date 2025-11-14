@@ -15,8 +15,8 @@ plt.close('all')
 
 
 # setup main plot
-#fig, ax = plt.subplots(figsize=(7, 4), dpi= 120)
-fig, ax = plt.subplots(figsize=(10, 5))
+#fig, ax = plt.subplots(figsize=(5, 2), dpi= 150)
+fig, ax = plt.subplots(figsize=(10, 6.5))
 
 # adjust plot area
 fig.subplots_adjust(left=0.3, bottom=0.32, right=0.95, top=0.97)
@@ -50,7 +50,7 @@ ax.legend(loc='upper left')
 ax.set_xlim(0.30, 0.50)
 
 # make error message if spins are outside domain
-error_text = fig.text(0.05, 0.1, 'Spins not in domain.', transform=ax.transAxes, fontsize=10)
+error_text = fig.text(0.05, 0.1, 'Spins not in domain.', transform=ax.transAxes)
 error_text.set_visible(False)
 
 #chi-squared text box 

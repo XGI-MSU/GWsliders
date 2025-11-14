@@ -16,7 +16,7 @@ plt.close('all')
 
 # setup main plot
 #fig, ax = plt.subplots(figsize=(5, 2), dpi= 150)
-fig, ax = plt.subplots(figsize=(5, 3), dpi= 175)
+fig, ax = plt.subplots(figsize=(5, 3), dpi= 1)
 
 # adjust plot area
 fig.subplots_adjust(left=0.3, bottom=0.33, right=0.95, top=0.98)
@@ -102,7 +102,7 @@ def checkbox_update(val):
     ymax = np.max(np.abs(data))
     ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
     # Rebuild legend in same location
-    ax.legend(loc='upper left')
+    ax.legend(loc='upper left', fontsize=6)
     ax.tick_params(axis='both', labelsize=6)
 
     # make new slider

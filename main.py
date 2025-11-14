@@ -16,10 +16,10 @@ plt.close('all')
 
 # setup main plot
 #fig, ax = plt.subplots(figsize=(5, 2), dpi= 150)
-fig, ax = plt.subplots(figsize=(7, 4), dpi= 170)
+fig, ax = plt.subplots(figsize=(7, 4), dpi= 158)
 
 # adjust plot area
-fig.subplots_adjust(left=0.3, bottom=0.32, right=0.95, top=0.97)
+fig.subplots_adjust(left=0.3, bottom=0.33, right=0.95, top=0.98)
 
 # make checkboxes
 checkboxes, buttons, buttons1, buttons2, buttons3, buttons4, buttons5, buttons6, buttons7 = make_checkboxes(fig)

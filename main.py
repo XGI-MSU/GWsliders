@@ -56,6 +56,7 @@ error_text.set_visible(False)
 
 #chi-squared text box 
 chi_text = fig.text(0.35, 0.35, rf'$\rho = {round(SNRmax, 3)}$')
+chi_text.set_fontsize(5)
 
 # function to handle checkbox changes
 def checkbox_update(val):

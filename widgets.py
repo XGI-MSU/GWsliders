@@ -159,7 +159,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
     # remove tick marking initial position of sliders
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
-        #slider.label.set_fontsize(5)
+        slider.label.set_fontsize(5)
     return [slider_axes, sliders]
 
 

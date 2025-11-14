@@ -46,6 +46,7 @@ residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label=
 residual_line.set_visible(False)
 ax.set_xlabel('time [s]')
 ax.set_ylabel('strain')
+ax.tick_params(axis='both', labelsize=6)
 ax.legend(loc='upper left')
 ax.set_xlim(0.30, 0.50)
 
@@ -100,6 +101,8 @@ def checkbox_update(val):
     ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
     # Rebuild legend in same location
     ax.legend(loc='upper left')
+    ax.tick_params(axis='both', labelsize=6)
+
     # make new slider
     slider_axes, sliders = make_sliders(fig, checkboxes, GW_signal.comp_params, slider_val)
     # remove initial position ticks on each slider

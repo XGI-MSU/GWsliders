@@ -32,7 +32,7 @@ def make_checkboxes(fig):
     checkboxes = CheckButtons(checkbox_ax, checkbox_labels, init_status)
      # change font size 
     for text in checkboxes.labels:
-        text.set_fontsize(6)
+        text.set_fontsize(8)
 
     #create buttons
     button_ax = fig.add_axes(button_signal)
@@ -167,7 +167,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
 def make_button(fig):
     button_ax = fig.add_axes(button_rect)
     button = Button(button_ax, 'Go to Reference Parameters', hovercolor='0.975')
-    button.label.set_fontsize(6)
+    button.label.set_fontsize(7)
     return button
 
 

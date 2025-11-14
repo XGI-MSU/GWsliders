@@ -26,9 +26,13 @@ def make_checkboxes(fig):
     det_label= 'Detector (L1, H1)'
     residual_label= 'Residuals'
     checkbox_labels = [chirp_q_label, plus_minus_label, real_data_label, det_label, residual_label]
+
     # checkboxes start unchecked
     init_status = [False, False, False, False, False]
     checkboxes = CheckButtons(checkbox_ax, checkbox_labels, init_status)
+     # change font size 
+    for text in checkboxes.labels:
+        text.set_fontsize(6)
 
     #create buttons
     button_ax = fig.add_axes(button_signal)
@@ -163,7 +167,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
 def make_button(fig):
     button_ax = fig.add_axes(button_rect)
     button = Button(button_ax, 'Go to Reference Parameters', hovercolor='0.975')
-    button.label.set_fontsize(4)
+    button.label.set_fontsize(6)
     return button
 
 

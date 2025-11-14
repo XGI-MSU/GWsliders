@@ -16,7 +16,7 @@ plt.close('all')
 
 # setup main plot
 #fig, ax = plt.subplots(figsize=(5, 2), dpi= 150)
-fig, ax = plt.subplots(figsize=(6, 3), dpi= 152)
+fig, ax = plt.subplots(figsize=(6, 4), dpi= 152)
 
 # adjust plot area
 fig.subplots_adjust(left=0.3, bottom=0.33, right=0.95, top=0.98)
@@ -40,9 +40,9 @@ init_params = get_comp_params(sliders)
 # plot data and fit
 fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(init_params, GW_signal, det)
 residuals = data - fit
-data_line, = ax.plot(times, data, color='Black', label=f'{det} data', alpha=0.5)
-fit_line, = ax.plot(times, fit, color='C2', label='fit')
-residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label= 'residual')
+data_line, = ax.plot(times, data, color='Black', label=f'{det} data', alpha=0.5, linewidth=0.8)
+fit_line, = ax.plot(times, fit, color='C2', label='fit', linewidth=0.8)
+residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label= 'residual', linewidth=0.8)
 residual_line.set_visible(False)
 ax.set_xlabel('time [s]', fontsize=8)
 ax.set_ylabel('strain', fontsize=8)
@@ -68,6 +68,7 @@ def checkbox_update(val):
     global det, data_line, residual_line
     # checkbox that switches detector data
     det = 'L1' if checkboxes.get_status()[3] else 'H1'
+    ax.legend(loc='upper left', fontsize=6)
      # update label
     data_line.set_label(f'{det} data')
     # check if using real data or not

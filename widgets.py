@@ -139,20 +139,20 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
     # make sliders
     if chirp_q_checked:     
         chirp_true = mchirp_from_mass1_mass2(m1_true, m2_true)
-        slider1 = Slider(ax=ax1, label=chirp_label, valmin=chirp_true - 10, valmax=chirp_true + 10, valinit= chirp_init, color= 'C2', handle_style={"size": 5})
-        slider2 = Slider(ax=ax2, label=ratio_label, valmin=ratio_min, valmax=ratio_max, valinit=ratio_init,  color= 'C2')
+        slider1 = Slider(ax=ax1, label=chirp_label, valmin=chirp_true - 10, valmax=chirp_true + 10, valinit= chirp_init, color= 'C2', handle_style={"size": 6})
+        slider2 = Slider(ax=ax2, label=ratio_label, valmin=ratio_min, valmax=ratio_max, valinit=ratio_init,  color= 'C2', handle_style={"size": 6})
     else:
-        slider1 = Slider(ax=ax1, label=m1_label, valmin=m1_true - 10, valmax=m1_true + 10, valinit= m1_init, color= 'C2')
-        slider2 = Slider(ax=ax2, label=m2_label, valmin=m2_true - 10, valmax=m2_true + 10, valinit= m2_init,  color= 'C2')
+        slider1 = Slider(ax=ax1, label=m1_label, valmin=m1_true - 10, valmax=m1_true + 10, valinit= m1_init, color= 'C2', handle_style={"size": 6})
+        slider2 = Slider(ax=ax2, label=m2_label, valmin=m2_true - 10, valmax=m2_true + 10, valinit= m2_init,  color= 'C2', handle_style={"size": 6})
     if plus_minus_checked:
-        slider3 = Slider(ax=ax3, label=spin_plus_label, valmin=spin_plus_min, valmax=spin_plus_max, valinit= spin_plus_init,  color= 'C2')
-        slider4 = Slider(ax=ax4, label=spin_minus_label, valmin=spin_minus_min, valmax=spin_minus_max, valinit= spin_minus_init,  color= 'C2')
+        slider3 = Slider(ax=ax3, label=spin_plus_label, valmin=spin_plus_min, valmax=spin_plus_max, valinit= spin_plus_init,  color= 'C2', handle_style={"size": 6})
+        slider4 = Slider(ax=ax4, label=spin_minus_label, valmin=spin_minus_min, valmax=spin_minus_max, valinit= spin_minus_init,  color= 'C2', handle_style={"size": 6})
     else:
-        slider3 = Slider(ax=ax3, label=chi1_label, valmin=chi1_min, valmax=chi1_max, valinit= chi1_init,  color= 'C2')
-        slider4 = Slider(ax=ax4, label=chi2_label, valmin=chi2_min, valmax=chi2_max, valinit= chi2_init,  color= 'C2')
+        slider3 = Slider(ax=ax3, label=chi1_label, valmin=chi1_min, valmax=chi1_max, valinit= chi1_init,  color= 'C2', handle_style={"size": 6})
+        slider4 = Slider(ax=ax4, label=chi2_label, valmin=chi2_min, valmax=chi2_max, valinit= chi2_init,  color= 'C2', handle_style={"size": 6})
     
-    slider5 = Slider(ax=ax5, label=amp_label, valmin=1e-22, valmax=1e-24, valinit= 5e-23,  color= '0.65')
-    slider6 = Slider(ax=ax6, label=phase_label, valmin= -np.pi, valmax= np.pi, valinit= 0,  color= '0.65')
+    slider5 = Slider(ax=ax5, label=amp_label, valmin=1e-22, valmax=1e-24, valinit= 5e-23,  color= '0.65', handle_style={"size": 6})
+    slider6 = Slider(ax=ax6, label=phase_label, valmin= -np.pi, valmax= np.pi, valinit= 0,  color= '0.65', handle_style={"size": 6})
     # store sliders and axes
     slider_axes = [ax1, ax2, ax3, ax4, ax5, ax6]
     sliders = [slider1, slider2, slider3, slider4, slider5, slider6]

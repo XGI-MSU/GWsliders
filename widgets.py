@@ -160,6 +160,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
         slider.label.set_fontsize(5)
+        slider.valtext.set_fontsize(5)
     return [slider_axes, sliders]
 
 

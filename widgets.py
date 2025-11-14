@@ -162,7 +162,9 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
 # make button to go to correct (or MAP) parameter values
 def make_button(fig):
     button_ax = fig.add_axes(button_rect)
-    return Button(button_ax, 'Go to Reference Parameters', hovercolor='0.975')
+    button = Button(button_ax, 'Go to Reference Parameters', hovercolor='0.975')
+    button.label.set_fontsize(4)
+    return button
 
 
 # function to get component parameters from sliders and checkboxes

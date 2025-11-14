@@ -40,9 +40,9 @@ init_params = get_comp_params(sliders)
 # plot data and fit
 fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(init_params, GW_signal, det)
 residuals = data - fit
-data_line, = ax.plot(times, data, color='Black', label=f'{det} data', alpha=0.5, fontsize= 4)
-fit_line, = ax.plot(times, fit, color='C2', label='fit', fontsize= 4)
-residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label= 'residual', fontsize= 4)
+data_line, = ax.plot(times, data, color='Black', label=f'{det} data', alpha=0.5)
+fit_line, = ax.plot(times, fit, color='C2', label='fit')
+residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label= 'residual')
 residual_line.set_visible(False)
 ax.set_xlabel('time [s]', fontsize= 4)
 ax.set_ylabel('strain', fontsize= 4)

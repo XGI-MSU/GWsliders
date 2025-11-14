@@ -15,7 +15,7 @@ plt.close('all')
 
 
 # setup main plot
-fig, ax = plt.subplots(figsize=(7, 4), dpi= 200)
+fig, ax = plt.subplots(figsize=(7, 4), dpi= 120)
 
 
 # adjust plot area

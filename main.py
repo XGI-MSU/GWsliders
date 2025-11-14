@@ -47,7 +47,7 @@ residual_line.set_visible(False)
 ax.set_xlabel('time [s]', fontsize=8)
 ax.set_ylabel('strain', fontsize=8)
 ax.tick_params(axis='both', labelsize=6)
-ax.legend(loc='upper left')
+ax.legend(loc='upper left', fontsize=6)
 ax.set_xlim(0.30, 0.50)
 
 # make error message if spins are outside domain

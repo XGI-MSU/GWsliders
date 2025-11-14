@@ -139,7 +139,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
     # make sliders
     if chirp_q_checked:     
         chirp_true = mchirp_from_mass1_mass2(m1_true, m2_true)
-        slider1 = Slider(ax=ax1, label=chirp_label, valmin=chirp_true - 10, valmax=chirp_true + 10, valinit= chirp_init, color= 'C2')
+        slider1 = Slider(ax=ax1, label=chirp_label, valmin=chirp_true - 10, valmax=chirp_true + 10, valinit= chirp_init, color= 'C2', handle_style={"size": 5})
         slider2 = Slider(ax=ax2, label=ratio_label, valmin=ratio_min, valmax=ratio_max, valinit=ratio_init,  color= 'C2')
     else:
         slider1 = Slider(ax=ax1, label=m1_label, valmin=m1_true - 10, valmax=m1_true + 10, valinit= m1_init, color= 'C2')
@@ -161,8 +161,8 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
         slider.ax.get_lines()[0].set_visible(False)
         slider.label.set_fontsize(5)
         slider.valtext.set_fontsize(5)
-        slider_marker = slider.poly
-        slider_marker.set_markersize(5)
+        # slider_marker = slider.poly
+        # slider_marker.set_markersize(5)
     return [slider_axes, sliders]
 
 

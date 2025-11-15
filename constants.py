@@ -110,12 +110,12 @@ menu_rect= [0.05, 0.5, 0.2, 0.2]
 
 # slider rectangles for plotting
 # [left, bottom, width, height]
-slider1_rect = [0.15, 0.22, 0.65, 0.03]
-slider2_rect = [0.15, 0.18, 0.65, 0.03]
-slider3_rect = [0.15, 0.14, 0.65, 0.03]
-slider4_rect = [0.15, 0.10, 0.65, 0.03]
-slider5_rect= [0.15, 0.06, 0.65, 0.03]
-slider6_rect= [0.15, 0.02, 0.65, 0.03]
+slider1_rect = [0.15, 0.21, 0.65, 0.03]
+slider2_rect = [0.15, 0.17, 0.65, 0.03]
+slider3_rect = [0.15, 0.13, 0.65, 0.03]
+slider4_rect = [0.15, 0.9, 0.65, 0.03]
+slider5_rect= [0.15, 0.05, 0.65, 0.03]
+slider6_rect= [0.15, 0.01, 0.65, 0.03]
 
 # slider1_rect = [0.15, 0.27, 0.40, 0.01]
 # slider2_rect = [0.15, 0.14, 0.40, 0.01]

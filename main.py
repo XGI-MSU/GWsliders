@@ -139,6 +139,8 @@ def slider_update(val):
         residuals = data - fit
         sliders[4].set_val(amp)
         sliders[5].set_val(phase)
+        sliders[4].set_active(False)
+        sliders[5].set_active(False)
         fit_line.set_ydata(fit)
         residual_line.set_ydata(residuals)
         chi_text.set_visible(True)
@@ -149,6 +151,8 @@ def slider_update(val):
         residuals = data - fit
         sliders[4].set_val(amp)
         sliders[5].set_val(phase)
+        sliders[4].set_active(False)
+        sliders[5].set_active(False)
         fit_line.set_ydata(fit)
         residual_line.set_ydata(residuals)
         chi_text.set_visible(True)

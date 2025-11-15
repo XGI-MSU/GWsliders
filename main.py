@@ -19,7 +19,7 @@ plt.close('all')
 fig, ax = plt.subplots(figsize=(5, 3), dpi= 175)
 
 # adjust plot area
-fig.subplots_adjust(left=0.3, bottom=0.33, right=0.95, top=0.98)
+fig.subplots_adjust(left=0.33, bottom=0.33, right=0.97, top=0.98)
 
 # make checkboxes
 checkboxes, buttons, buttons1, buttons2, buttons3, buttons4, buttons5, buttons6, buttons7 = make_checkboxes(fig)
@@ -44,8 +44,8 @@ data_line, = ax.plot(times, data, color='Black', label=f'{det} data', alpha=0.5,
 fit_line, = ax.plot(times, fit, color='C2', label='fit', linewidth=0.8)
 residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label= 'residual', linewidth=0.8)
 residual_line.set_visible(False)
-ax.set_xlabel('time [s]', fontsize=8)
-ax.set_ylabel('strain', fontsize=8)
+ax.set_xlabel('time [s]', fontsize=6)
+ax.set_ylabel('strain', fontsize=6)
 ax.tick_params(axis='both', labelsize=6)
 ax.legend(loc='upper left', fontsize=6)
 ax.set_xlim(0.30, 0.50)

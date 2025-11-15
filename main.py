@@ -46,7 +46,7 @@ residual_line, = ax.plot(times, residuals, color= 'steelblue', alpha= 0.8,label=
 residual_line.set_visible(False)
 ax.set_xlabel('time [s]', fontsize=6)
 ax.set_ylabel('strain', fontsize=6)
-ax.tick_params(axis='both', labelsize=6)
+ax.tick_params(axis='both', labelsize=5)
 ax.legend(loc='upper left', fontsize=6)
 ax.set_xlim(0.30, 0.50)
 

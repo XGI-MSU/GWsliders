@@ -18,10 +18,9 @@ fig, ax = plt.subplots(figsize=(5, 3), dpi= 175)
 
 # adjust plot area
 fig.subplots_adjust(left=0.33, bottom=0.34, right=0.97, top=0.98)
-widget_refs = []
+
 # make checkboxes
 checkboxes, buttons, buttons1, buttons2, buttons3, buttons4, buttons5, buttons6, buttons7 = make_checkboxes(fig)
-
 
 # start off using simulated data
 GW_signal = GW_simulated
@@ -32,12 +31,6 @@ slider_axes, sliders = make_sliders(fig, checkboxes, GW_signal.comp_params)
 
 # make button to go to reference parameters
 button = make_button(fig)
-
-
-
-widget_refs.extend([checkboxes, button, buttons, buttons1, buttons2, 
-                   buttons3, buttons4, buttons5, buttons6, buttons7])
-widget_refs.extend(sliders) 
 
 # get initial parameters
 init_params = get_comp_params(sliders)
@@ -66,10 +59,8 @@ chi_text.set_fontsize(7)
 # function to handle checkbox changes
 def checkbox_update(val):
     # store current parameter values
-    global slider_axes, sliders, widget_refs
+    global slider_axes, sliders
     slider_val= get_comp_params(sliders)
-
-    widget_refs = [w for w in widget_refs if w not in sliders]
     # remove old sliders
     remove_sliders(slider_axes, sliders)
     # store current detector 
@@ -114,16 +105,14 @@ def checkbox_update(val):
 
     # make new slider
     slider_axes, sliders = make_sliders(fig, checkboxes, GW_signal.comp_params, slider_val)
-    widget_refs.extend(sliders)
     # remove initial position ticks on each slider
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
-        slider.on_changed(slider_update)
     # reattach slider_update to the new sliders
-    # sliders[0].on_changed(slider_update)
-    # sliders[1].on_changed(slider_update)
-    # sliders[2].on_changed(slider_update)
-    # sliders[3].on_changed(slider_update)
+    sliders[0].on_changed(slider_update)
+    sliders[1].on_changed(slider_update)
+    sliders[2].on_changed(slider_update)
+    sliders[3].on_changed(slider_update)
     # update data plotted
     slider_update(val)
     fig.canvas.draw_idle()

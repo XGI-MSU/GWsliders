@@ -37,43 +37,43 @@ def make_checkboxes(fig):
     #create buttons
     button_ax = fig.add_axes(button_signal)
     button_ax.set_visible(False)  # hidden initially
-    buttons = Button(button_ax, 'GW150914', hovercolor='0.97' )
+    buttons = Button(button_ax, 'GW150914' )
     buttons.label.set_fontsize(6)
 
     button1_ax = fig.add_axes(button1_signal)
     button1_ax.set_visible(False)  # hidden initially
-    buttons1 = Button(button1_ax, 'GW190521', hovercolor='0.97')
+    buttons1 = Button(button1_ax, 'GW190521')
     buttons1.label.set_fontsize(6)
 
     button2_ax = fig.add_axes(button2_signal)
     button2_ax.set_visible(False)  # hidden initially
-    buttons2 = Button(button2_ax, 'GW200129', hovercolor='0.97')
+    buttons2 = Button(button2_ax, 'GW200129')
     buttons2.label.set_fontsize(6)
 
     button3_ax = fig.add_axes(button3_signal)
     button3_ax.set_visible(False)  # hidden initially
-    buttons3 = Button(button3_ax, 'GW200224', hovercolor='0.97')
+    buttons3 = Button(button3_ax, 'GW200224')
     buttons3.label.set_fontsize(6)
 
     button4_ax = fig.add_axes(button4_signal)
     button4_ax.set_visible(False)  # hidden initially
-    buttons4 = Button(button4_ax, 'GW200311', hovercolor='0.97')
+    buttons4 = Button(button4_ax, 'GW200311')
     buttons4.label.set_fontsize(6)
 
     button5_ax= fig.add_axes(button5_signal)
     button5_ax.set_visible(False)  #hidden initially
-    buttons5= Button(button5_ax, 'GW191109', hovercolor= '0.97')
+    buttons5= Button(button5_ax, 'GW191109')
     buttons5.label.set_fontsize(6)
 
     button6_ax= fig.add_axes(button6_signal)
     button6_ax.set_visible(False)  #hidden initially
-    buttons6= Button(button6_ax, 'GW190828', hovercolor= '0.97')
+    buttons6= Button(button6_ax, 'GW190828')
     buttons6.label.set_fontsize(6)
 
     button7_ax= fig.add_axes(button7_signal)
     button7_ax.set_visible(False) #hidden initially
-    buttons7= Button(button7_ax, 'GW190519', hovercolor= '0.97')
-    buttons7.label.set_fontsize(6)
+    buttons7= Button(button7_ax, 'GW190519')
+    buttons.label.set_fontsize(6)
 
     # Checkbox toggle 
     def on_checkbox_click(label):
@@ -168,15 +168,13 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
         slider.ax.get_lines()[0].set_visible(False)
         slider.label.set_fontsize(5)
         slider.valtext.set_fontsize(5)
-        # slider_marker = slider.poly
-        # slider_marker.set_markersize(5)
     return [slider_axes, sliders]
 
 
 # make button to go to correct (or MAP) parameter values
 def make_button(fig):
     button_ax = fig.add_axes(button_rect)
-    button = Button(button_ax, 'Reference Parameters', hovercolor='0.975')
+    button = Button(button_ax, 'Reference Parameters')
     button.label.set_fontsize(6)
     return button
 

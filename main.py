@@ -32,10 +32,6 @@ slider_axes, sliders = make_sliders(fig, checkboxes, GW_signal.comp_params)
 # make button to go to reference parameters
 button = make_button(fig)
 
-# store widgets so they aren't garbage collected 
-fig._widgets = [checkboxes, button, buttons, buttons1, buttons2, 
-                buttons3, buttons4, buttons5, buttons6, buttons7, sliders]
-
 # get initial parameters
 init_params = get_comp_params(sliders)
 
@@ -109,17 +105,14 @@ def checkbox_update(val):
 
     # make new slider
     slider_axes, sliders = make_sliders(fig, checkboxes, GW_signal.comp_params, slider_val)
-    # Update the stored reference with new sliders
-    fig._widgets[-1] = sliders
     # remove initial position ticks on each slider
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
-        slider.on_changed(slider_update)
     # reattach slider_update to the new sliders
-    # sliders[0].on_changed(slider_update)
-    # sliders[1].on_changed(slider_update)
-    # sliders[2].on_changed(slider_update)
-    # sliders[3].on_changed(slider_update)
+    sliders[0].on_changed(slider_update)
+    sliders[1].on_changed(slider_update)
+    sliders[2].on_changed(slider_update)
+    sliders[3].on_changed(slider_update)
     # update data plotted
     slider_update(val)
     fig.canvas.draw_idle()

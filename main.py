@@ -66,7 +66,7 @@ chi_text.set_fontsize(7)
 # function to handle checkbox changes
 def checkbox_update(val):
     # store current parameter values
-    global slider_axes, sliders
+    global slider_axes, sliders, widget_refs
     slider_val= get_comp_params(sliders)
 
     widget_refs = [w for w in widget_refs if w not in sliders]

@@ -73,7 +73,7 @@ def make_checkboxes(fig):
     button7_ax= fig.add_axes(button7_signal)
     button7_ax.set_visible(False) #hidden initially
     buttons7= Button(button7_ax, 'GW190519')
-    buttons.label.set_fontsize(6)
+    buttons7.label.set_fontsize(6)
 
     # Checkbox toggle 
     def on_checkbox_click(label):

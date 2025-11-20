@@ -28,6 +28,7 @@ GW_signal = GW_simulated
 det = 'H1'
 # make sliders
 slider_axes, sliders = make_sliders(fig, checkboxes, GW_signal.comp_params)
+slider_cids = []
 
 # make button to go to reference parameters
 button = make_button(fig)
@@ -108,11 +109,17 @@ def checkbox_update(val):
     # remove initial position ticks on each slider
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
+
+    slider_cids.clear()  # Clear the list
+    slider_cids.append(sliders[0].on_changed(slider_update))
+    slider_cids.append(sliders[1].on_changed(slider_update))
+    slider_cids.append(sliders[2].on_changed(slider_update))
+    slider_cids.append(sliders[3].on_changed(slider_update))
     # reattach slider_update to the new sliders
-    sliders[0].on_changed(slider_update)
-    sliders[1].on_changed(slider_update)
-    sliders[2].on_changed(slider_update)
-    sliders[3].on_changed(slider_update)
+    # sliders[0].on_changed(slider_update)
+    # sliders[1].on_changed(slider_update)
+    # sliders[2].on_changed(slider_update)
+    # sliders[3].on_changed(slider_update)
     # update data plotted
     slider_update(val)
     fig.canvas.draw_idle()
@@ -329,10 +336,15 @@ def button_push_signals7(event):
 
 
 # update plot as sliders move
-sliders[0].on_changed(slider_update)
-sliders[1].on_changed(slider_update)
-sliders[2].on_changed(slider_update)
-sliders[3].on_changed(slider_update)
+# sliders[0].on_changed(slider_update)
+# sliders[1].on_changed(slider_update)
+# sliders[2].on_changed(slider_update)
+# sliders[3].on_changed(slider_update)
+
+slider_cids.append(sliders[0].on_changed(slider_update))
+slider_cids.append(sliders[1].on_changed(slider_update))
+slider_cids.append(sliders[2].on_changed(slider_update))
+slider_cids.append(sliders[3].on_changed(slider_update))
 
 # update plots when checkboxes changed
 checkboxes.on_clicked(checkbox_update)

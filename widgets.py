@@ -124,10 +124,10 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
     if init_comp_params is not None:
         m1_init, m2_init, chi1_init, chi2_init= init_comp_params
     else: 
-        m1_init= np.random.uniform(m1_true - 10, m1_true + 10)
-        m2_init= np.random.uniform(m2_true - 10, m2_true + 10)
-        chi1_init= np.random.uniform(chi1_min, chi1_max)
-        chi2_init= np.random.uniform(chi2_min, chi2_max)
+        m1_init= np.random.uniform(m1_true - 9, m1_true + 9)
+        m2_init= np.random.uniform(m2_true - 9, m2_true + 9)
+        chi1_init= np.random.uniform(chi1_min+0.1, chi1_max-0.1)
+        chi2_init= np.random.uniform(chi2_min+0.1, chi2_max-0.1)
     chirp_init = mchirp_from_mass1_mass2(m1_init, m2_init)
     ratio_init = m2_init / m1_init
     spin_plus_init = chi_eff(m1_init, m2_init, chi1_init, chi2_init)

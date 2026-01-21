@@ -31,7 +31,7 @@ COPY --chown=user:user . /app
 ENV VOILA_PREHEAT=false
 
 # Run Voila
-CMD ["voila", "notebook.ipynb", "--no-browser", "--Voila.ip=0.0.0.0", "--port=7860", "--progressive_rendering", "--template=vuetify-default"]
+CMD ["voila", "notebook.ipynb", "--no-browser", "--Voila.ip=0.0.0.0", "--port=7860", "--progressive_rendering=True", "--template=vuetify-default"]
 
 
 

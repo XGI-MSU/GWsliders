@@ -67,7 +67,7 @@ def checkbox_update(val):
     # store current detector 
     global det, data_line, residual_line
     # checkbox that switches detector data
-    det = 'L' if checkboxes.get_status()[3] else 'H1'
+    det = 'L1' if checkboxes.get_status()[3] else 'H1'
     ax.legend(loc='upper left', fontsize=6)
      # update label
     data_line.set_label(f'{det} data')

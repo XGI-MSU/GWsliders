@@ -75,6 +75,7 @@ def checkbox_update(val):
     real_data_checked = checkboxes.get_status()[2]  
     residuals_checked= checkboxes.get_status()[4]
     # ensure parameters and plot don't update when checkboxes clicked
+
     if not real_data_checked:
         global GW_signal
         GW_signal = GW_simulated
@@ -318,7 +319,7 @@ def button_push_signals6(event):
 # function to update plot when GW190519 button clicked
 def button_push_signals7(event):
     global GW_signal
-    GW_signal = GW190519
+    GW_signal = GW190828
     on_button_click(event, buttons7)
     fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(init_params, GW_signal, det)
     residuals = data - fit
@@ -362,6 +363,8 @@ buttons6.on_clicked(button_push_signals6)
 buttons7.on_clicked(button_push_signals7)
 signal_buttons = [buttons, buttons1, buttons2, buttons3, buttons4, buttons5, buttons6, buttons7]
 
+# try getting rid of button 7
+# test the data in tempalte or notebook ro seomthing 
 
 # function to have buttons change color when clicked 
 def on_button_click(event, button_to_change):

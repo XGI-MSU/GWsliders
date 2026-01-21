@@ -25,7 +25,7 @@ checkboxes, buttons, buttons1, buttons2, buttons3, buttons4, buttons5, buttons6,
 # start off using simulated data
 GW_signal = GW_simulated
 # start off with Hanford detector 
-det = 'H'
+det = 'H1'
 # make sliders
 slider_axes, sliders = make_sliders(fig, checkboxes, GW_signal.comp_params)
 slider_cids = []
@@ -67,7 +67,7 @@ def checkbox_update(val):
     # store current detector 
     global det, data_line, residual_line
     # checkbox that switches detector data
-    det = 'L' if checkboxes.get_status()[3] else 'H'
+    det = 'L' if checkboxes.get_status()[3] else 'H1'
     ax.legend(loc='upper left', fontsize=6)
      # update label
     data_line.set_label(f'{det} data')

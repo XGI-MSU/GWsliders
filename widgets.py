@@ -14,7 +14,7 @@ def remove_sliders(slider_axes, sliders):
     for slider in sliders:
         slider.disconnect_events()
 # instatiate detector 
-det_state = {'det': 'H'}
+det_state = {'det': 'H1'}
 # function to make checkboxes
 def make_checkboxes(fig):
     # make axes
@@ -23,7 +23,7 @@ def make_checkboxes(fig):
     chirp_q_label = r'Use $\mathcal{M}$ and $q$'
     plus_minus_label = r'Use $\chi_+$ and $\chi_-$'
     real_data_label = 'Use Real Data'
-    det_label= 'Detector (L, H)'
+    det_label= 'Detector (L1, H1)'
     residual_label= 'Residuals'
     checkbox_labels = [chirp_q_label, plus_minus_label, real_data_label, det_label, residual_label]
 
@@ -93,7 +93,7 @@ def make_checkboxes(fig):
         elif label == det_label:
             idx = checkbox_labels.index(label)
             is_livingston = checkboxes.get_status()[idx]
-            det_state['det'] = 'L' if is_livingston else 'H'
+            det_state['det'] = 'L1' if is_livingston else 'H1'
             
 
 

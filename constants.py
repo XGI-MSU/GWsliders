@@ -79,25 +79,25 @@ f_max= 2048.
 
 
 
-#load dictionary to pull time domain info 
+# load dictionary to pull time domain info 
 with open('data/GW150914_data_dict.pkl', 'rb') as f:
     GW150914_data = pickle.load(f)
-#choose intial detector 
+# choose intial detector 
 det= 'H1'
-#get time domain info from dictionary
+# get time domain info from dictionary
 dt = GW150914_data['dt']
 fs = GW150914_data['fs']
 strain = GW150914_data[det]['strain']
 N = len(strain)
 Nf = int(N/2 + 1)
 
-#get frequency info
+# get frequency info
 freqs_full = np.linspace(0., f_max, Nf)
 freqs_indexes = np.where(freqs_full > f_min)
 freqs= np.load('freqs.npy')
-#frequencies for full waveform
+# frequencies for full waveform
 freqs_for_waveform = freqs[np.where(freqs>f_min)]
-#frequencies for creating template
+# frequencies for creating template
 freqs_padded = freqs_full.copy()
 freqs_padded[freqs_padded < f_min] = 0.0
 df = np.abs(freqs[1] - freqs[0])
@@ -117,14 +117,7 @@ slider4_rect = [0.15, 0.09, 0.65, 0.03]
 slider5_rect= [0.15, 0.05, 0.65, 0.03]
 slider6_rect= [0.15, 0.01, 0.65, 0.03]
 
-# slider1_rect = [0.15, 0.27, 0.40, 0.01]
-# slider2_rect = [0.15, 0.14, 0.40, 0.01]
-# slider3_rect = [0.15, 0.11, 0.40, 0.01]
-# slider4_rect = [0.15, 0.8, 0.40, 0.01]
-# slider5_rect= [0.15, 0.05, 0.40, 0.01]
-# slider6_rect= [0.15, 0.02, 0.40, 0.01]
-
-# button rectangle to go to injected (or MAP) parameters
+# button rectangle to go to injected parameters
 button_rect = [0.05, 0.7, 0.2, 0.04]
 button_signal= [0.05, 0.65, 0.2, 0.04]
 button1_signal= [0.05, 0.6, 0.2, 0.04]
@@ -149,10 +142,3 @@ amp_label= r'amplitude'
 phase_label= r'phase'
 det_label= r'Livingston Detector'
 
-# m1_label.set_fontsize(4)
-# m2_label.set_fontsize(4)
-# chi1_label.set_fontsize(4)
-# chi2_label.set_fontsize(4)
-# amp_label.set_fontsize(4)
-# phase_label.set_fontsize(4)
-# det_label.set_fontsize(4)

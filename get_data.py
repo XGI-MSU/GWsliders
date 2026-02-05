@@ -103,12 +103,13 @@ def get_strain_whitenbp_data(fn_H1, fn_L1, fband, large_data_filename, time_cent
 #example for saving signal data
 
 
-#  save total data for GW150914
-# GW150914_data_dict = get_strain_whitenbp_data('H-H1_LOSC_4_V2-1126259446-32.hdf5',
-#                                               'L-L1_LOSC_4_V2-1126259446-32.hdf5',
-#                                               [35., 350.],
-#                                               'LOSC_4_V2-1126257414-4096.hdf5',
-#                                               1126259462)
+# save total data for GW150914
+# load 32 sec and 4096 sec files from both Livingston and Hanford 
+GW190412_data_dict = get_strain_whitenbp_data('H-H1_LOSC_4_V2-1126259446-32.hdf5',
+                                              'L-L1_LOSC_4_V2-1126259446-32.hdf5',
+                                              [35., 350.],
+                                              'LOSC_4_V2-1126257414-4096.hdf5',
+                                              	1239082262.1)
 
 # with open('data/GW150914_data_dict.pkl', 'wb') as f:
 #     pickle.dump(GW150914_data_dict, f)

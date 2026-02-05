@@ -1,10 +1,3 @@
----
-title: GWGUI
-emoji: 🐨
-colorFrom: red
-colorTo: red
-sdk: docker
-pinned: false
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+## Requirements
+- Python 3.11
+- See requirements.txt for packages

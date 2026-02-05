@@ -6,7 +6,7 @@ from scipy.signal import butter, filtfilt
 from scipy.signal.windows import tukey
 import constants as c 
 
-
+# look over this/ fix 
 def whiten(template_FD, interp_psd, dt, phase_shift=0, time_shift=0):
     """Whitens strain data given the psd and sample rate, also applying a phase
     shift and time shift.

@@ -2,12 +2,10 @@
 
 
 
-
-import matplotlib
 # for notebook/voila
+#import matplotlib
 #matplotlib.use("module://ipympl.backend_nbagg")
-# for terminal
-#matplotlib.use("TkAgg")
+
 import matplotlib.pyplot as plt
 from widgets import *
 from matched_filter import *
@@ -118,16 +116,15 @@ def checkbox_update(val):
         slider.ax.get_lines()[0].set_visible(False)
     print(f"New sliders created: {len(sliders)}")
     print("=== CHECKBOX UPDATE END ===")
-    slider_cids.clear()  # Clear the list
+
+     # # Disconnect old sliders
+    slider_cids.clear() 
+    # Reconnect to new sliders
     slider_cids.append(sliders[0].on_changed(slider_update))
     slider_cids.append(sliders[1].on_changed(slider_update))
     slider_cids.append(sliders[2].on_changed(slider_update))
     slider_cids.append(sliders[3].on_changed(slider_update))
-    # reattach slider_update to the new sliders
-    # sliders[0].on_changed(slider_update)
-    # sliders[1].on_changed(slider_update)
-    # sliders[2].on_changed(slider_update)
-    # sliders[3].on_changed(slider_update)
+    
     # update data plotted
     slider_update(val)
     fig.canvas.draw_idle()
@@ -138,34 +135,44 @@ def slider_update(val):
     chirp_q_checked, plus_minus_checked, real_data_checked, det_checked, residual_checked= checkboxes.get_status()
     # get component parameters
     params = get_comp_params(sliders)
-    # check if spins are in domain
+    # check if spins are in domain, if they are outside of domain display error message
     if params[2] < chi1_min or params[2] > chi1_max or params[3] < chi2_min or params[3] > chi2_max:
         fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(params, GW_signal, det)
+        # if out of range, zero out data
         zero_fit = np.zeros_like(data)
         fit_line.set_data(times, zero_fit)
         residuals = data - zero_fit
         residual_line.set_data(times, residuals)
+        # show error text
         error_text.set_visible(True)
         chi_text.set_visible(False)
     elif real_data_checked:
+        # update sliders, data and fit when real data is checked
         fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(params, GW_signal, det)
         residuals = data - fit
+
+        # "freeze" amp and phase sliders
         sliders[4].set_val(amp)
         sliders[5].set_val(phase)
         sliders[4].set_active(False)
         sliders[5].set_active(False)
+
         fit_line.set_ydata(fit)
         residual_line.set_ydata(residuals)
         chi_text.set_visible(True)
         error_text.set_visible(False)
         chi_text.set_text(rf'$\rho = {round(SNRmax, 3)}$')
     else:
+        # if real data is not checked, set signal to simulated data
         fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(params, GW_signal, det)
         residuals = data - fit
+
+        # "freeze amp and phase sliders"
         sliders[4].set_val(amp)
         sliders[5].set_val(phase)
         sliders[4].set_active(False)
         sliders[5].set_active(False)
+
         fit_line.set_ydata(fit)
         residual_line.set_ydata(residuals)
         chi_text.set_visible(True)
@@ -336,7 +343,7 @@ def button_push_signals7(event):
     residual_line.set_ydata(residuals)
     checkbox_update(event)
     ymax = np.max(np.abs(data))
-    ax.set_xlim(-0.05, 0.2)
+    ax.set_xlim(-0.05, 0.15)
     ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
     fig.canvas.draw_idle()
     return 
@@ -344,11 +351,6 @@ def button_push_signals7(event):
 
 
 # update plot as sliders move
-# sliders[0].on_changed(slider_update)
-# sliders[1].on_changed(slider_update)
-# sliders[2].on_changed(slider_update)
-# sliders[3].on_changed(slider_update)
-
 slider_cids.append(sliders[0].on_changed(slider_update))
 slider_cids.append(sliders[1].on_changed(slider_update))
 slider_cids.append(sliders[2].on_changed(slider_update))
@@ -370,8 +372,6 @@ buttons6.on_clicked(button_push_signals6)
 buttons7.on_clicked(button_push_signals7)
 signal_buttons = [buttons, buttons1, buttons2, buttons3, buttons4, buttons5, buttons6, buttons7]
 
-# try getting rid of button 7
-# test the data in tempalte or notebook ro seomthing 
 
 # function to have buttons change color when clicked 
 def on_button_click(event, button_to_change):

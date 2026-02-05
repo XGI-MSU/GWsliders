@@ -24,19 +24,13 @@ def whiten(template_FD, interp_psd, dt, phase_shift=0, time_shift=0):
     """
 
     hf = template_FD
-    # Calculate frequencies based on actual data length
+    # Calculate frequencies based on data length
     fs = 1.0 / dt
     N = len(hf) * 2 - 1  # Original time-domain length
     freqs = np.fft.rfftfreq(N, dt)
     
     # apply time and phase shift
     hf = hf * np.exp(-1.j * 2 * np.pi * time_shift * freqs - 1.j * phase_shift)
-
-    # # get frequencies
-    # freqs = c.freqs
-
-    # # apply time and phase shift
-    # hf = hf * np.exp(-1.j * 2 * np.pi * time_shift * freqs - 1.j * phase_shift)
 
     # normalize and whiten templates
     norm = 1./np.sqrt(1./(dt*2))

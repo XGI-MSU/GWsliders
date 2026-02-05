@@ -158,7 +158,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
         slider3 = Slider(ax=ax3, label=chi1_label, valmin=chi1_min, valmax=chi1_max, valinit= chi1_init,  color= 'C2', handle_style={"size": 6.5})
         slider4 = Slider(ax=ax4, label=chi2_label, valmin=chi2_min, valmax=chi2_max, valinit= chi2_init,  color= 'C2', handle_style={"size": 6.5})
     
-    slider5 = Slider(ax=ax5, label=amp_label, valmin=1e-24, valmax=1e-22, valinit= 5e-23,  color= '0.65', handle_style={"size": 6.5})
+    slider5 = Slider(ax=ax5, label=amp_label, valmin=1e-24, valmax=1e-23, valinit= 5e-23,  color= '0.65', handle_style={"size": 6.5})
     slider6 = Slider(ax=ax6, label=phase_label, valmin= -np.pi, valmax= np.pi, valinit= 0,  color= '0.65', handle_style={"size": 6.5})
     # store sliders and axes
     slider_axes = [ax1, ax2, ax3, ax4, ax5, ax6]

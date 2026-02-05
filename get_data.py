@@ -102,6 +102,7 @@ def get_strain_whitenbp_data(fn_H1, fn_L1, fband, large_data_filename, time_cent
 
 #example for saving signal data
 
+
 #  save total data for GW150914
 # GW150914_data_dict = get_strain_whitenbp_data('H-H1_LOSC_4_V2-1126259446-32.hdf5',
 #                                               'L-L1_LOSC_4_V2-1126259446-32.hdf5',

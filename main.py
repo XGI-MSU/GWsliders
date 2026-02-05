@@ -4,7 +4,10 @@
 
 
 import matplotlib
-matplotlib.use("module://ipympl.backend_nbagg")
+# for notebook/voila
+#matplotlib.use("module://ipympl.backend_nbagg")
+# for terminal
+#matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 from widgets import *
 from matched_filter import *
@@ -59,10 +62,13 @@ chi_text.set_fontsize(7)
 
 # function to handle checkbox changes
 def checkbox_update(val):
-    # store current parameter values
+    print("=== CHECKBOX UPDATE START ===")
     global slider_axes, sliders
-    slider_val= get_comp_params(sliders)
+    slider_val = get_comp_params(sliders)
+    print(f"Current slider values: {slider_val}")
+    
     # remove old sliders
+    print("Removing sliders...")
     remove_sliders(slider_axes, sliders)
     # store current detector 
     global det, data_line, residual_line
@@ -110,7 +116,8 @@ def checkbox_update(val):
     # remove initial position ticks on each slider
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
-
+    print(f"New sliders created: {len(sliders)}")
+    print("=== CHECKBOX UPDATE END ===")
     slider_cids.clear()  # Clear the list
     slider_cids.append(sliders[0].on_changed(slider_update))
     slider_cids.append(sliders[1].on_changed(slider_update))
@@ -375,5 +382,4 @@ def on_button_click(event, button_to_change):
     fig.canvas.draw_idle() 
     return
 
-
-# display(fig)
+plt.show()

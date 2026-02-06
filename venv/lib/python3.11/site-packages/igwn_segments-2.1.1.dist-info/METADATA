@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: igwn-segments
+Version: 2.1.1
+Summary: Representations of semi-open intervals
+Author-email: Kipp Cannon <kipp.cannon@ligo.org>, Tito Dal Canton <tito.canton@ligo.org>, Duncan Macleod <duncan.macleod@ligo.org>, Leo Singer <leo.singer@ligo.org>
+License: GPL-3.0-or-later
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Provides-Extra: docs
+Requires-Dist: furo; extra == "docs"
+Requires-Dist: Sphinx; extra == "docs"
+Requires-Dist: sphinx-automodapi; extra == "docs"
+Requires-Dist: sphinx-design; extra == "docs"
+Provides-Extra: tests
+Requires-Dist: pytest>=3.9.1; extra == "tests"
+Dynamic: license-file
+
+igwn-segments
+=============
+
+Note that in 2024 this project was forked from https://git.ligo.org/lscsoft/ligo-segments.
+
+Defines the `segment`, `segmentlist`, and `segmentlistdict` objects for manipulating semi-open intervals.
+
+
+Citing This Work
+================
+
+This work can be cited, in general, as doi:10.5281/zenodo.5783071 or version specific DOIs are available as well.  See the Zenodo record for more information.

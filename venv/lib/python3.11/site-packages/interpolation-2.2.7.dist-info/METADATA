@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: interpolation
+Version: 2.2.7
+Summary: Interpolation in Python
+License: BSD-2-Clause
+Author: Pablo Winant
+Author-email: pablo.winant@gmail.com
+Maintainer: Pablo Winant
+Maintainer-email: pablo.winant@gmail.com
+Requires-Python: >=3.9
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: numba (>=0.59.1)
+Requires-Dist: scipy (>=1.10,<2.0)
+Description-Content-Type: text/markdown
+
+![CI](https://github.com/EconForge/interpolation.py/workflows/CI/badge.svg?branch=master) ![DOC](https://github.com/EconForge/interpolation.py/workflows/DOC/badge.svg?branch=master)
+
+
+See the [doc](https://www.econforge.org/interpolation.py).
+

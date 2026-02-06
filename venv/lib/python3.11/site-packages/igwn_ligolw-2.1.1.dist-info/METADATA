@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: igwn-ligolw
+Version: 2.1.1
+Summary: Python LIGO Light-Weight XML I/O Library
+Author-email: Kipp Cannon <kipp@g.ecc.u-tokyo.ac.jp>, Tito Dal Canton <tito.canton@ligo.org>, Duncan Macleod <duncan.macleod@ligo.org>, Leo Singer <leo.singer@ligo.org>
+License: GPL-3.0-or-later
+Classifier: Development Status :: 6 - Mature
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Text Processing :: Markup :: XML
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: igwn-segments
+Requires-Dist: numpy
+Requires-Dist: python-dateutil
+Requires-Dist: pyyaml
+Requires-Dist: tqdm
+Provides-Extra: docs
+Requires-Dist: furo; extra == "docs"
+Requires-Dist: lalsuite; extra == "docs"
+Requires-Dist: Sphinx; extra == "docs"
+Requires-Dist: sphinx-automodapi; extra == "docs"
+Requires-Dist: sphinx-design; extra == "docs"
+Provides-Extra: tests
+Requires-Dist: matplotlib; extra == "tests"
+Requires-Dist: pytest>=3.9.0; extra == "tests"
+Requires-Dist: pytest-benchmark; extra == "tests"
+Requires-Dist: pytest-doctestplus; extra == "tests"
+Requires-Dist: pytest-snapshot; extra == "tests"
+Dynamic: license-file
+
+# igwn-ligolw
+
+The LIGO Light-Weight XML format is used extensively by compact object
+detection pipeline and associated tool sets.
+This package provides a Python I/O library for reading, writing, and
+interacting with documents in this format.
+
+Note that in 2024 this project was forked from
+<https://git.ligo.org/kipp.cannon/python-ligo-lw>.
+
+For full details, including installation instructions, see the online
+documentation:
+
+<https://igwn-ligolw.readthedocs.io>

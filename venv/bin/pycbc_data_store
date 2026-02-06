@@ -1,0 +1,55 @@
+#!/Users/pipermorris/Desktop/GWGUI_copy/venv/bin/python3.11
+""" Create HDF strain cache file
+"""
+import logging
+import argparse
+import numpy
+
+import pycbc
+import pycbc.strain
+import pycbc.dq
+from pycbc.fft.fftw import set_measure_level
+from pycbc.events.veto import segments_to_start_end
+from pycbc.io.hdf import HFile
+
+set_measure_level(0)
+
+parser = argparse.ArgumentParser(description=__doc__)
+pycbc.add_common_pycbc_options(parser)
+parser.add_argument("--science-name", help="Science flag definition")
+parser.add_argument("--segment-server")
+parser.add_argument("--veto-definer-file")
+parser.add_argument("--instrument")
+parser.add_argument("--output-file", required=True)
+
+pycbc.strain.insert_strain_option_group(parser)
+args = parser.parse_args()
+pycbc.init_logging(args.verbose)
+
+logging.info('Querying science segemnts')
+segs = pycbc.dq.query_str(args.instrument,
+                          args.science_name,
+                          args.gps_start_time,
+                          args.gps_end_time,
+                          server=args.segment_server,
+                          veto_definer=args.veto_definer_file)
+logging.info('Found %s segments, %ss total', len(segs), abs(segs))
+
+f = HFile(args.output_file, 'w')
+starts, ends = segments_to_start_end(segs)
+pad = 0 if args.pad_data is None else args.pad_data
+f['{}/segments/start'.format(args.channel_name)] = starts + pad
+f['{}/segments/end'.format(args.channel_name)] = ends - pad
+
+for i, seg in enumerate(segs):
+    logging.info('Processing science segment %s/%s of duration %ss',
+                 i, len(segs), abs(seg))
+
+    args.gps_start_time = seg[0] + pad
+    args.gps_end_time = seg[1] - pad
+
+    logging.info('Reading %s-%s', seg[0], seg[1])
+    ht = pycbc.strain.from_cli(args)
+    f.create_dataset("{}/{}".format(args.channel_name, i), data=ht.data[:],
+                     compression_opts=9, compression='gzip')
+logging.info('Done!')

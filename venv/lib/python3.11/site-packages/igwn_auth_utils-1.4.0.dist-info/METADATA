@@ -1,0 +1,109 @@
+Metadata-Version: 2.4
+Name: igwn-auth-utils
+Version: 1.4.0
+Summary: Authorisation utilities for IGWN
+Author-email: Duncan Macleod <duncan.macleod@ligo.org>
+License: BSD-3-Clause
+Project-URL: Homepage, https://git.ligo.org/computing/igwn-auth-utils/
+Project-URL: Bug Tracker, https://git.ligo.org/computing/igwn-auth-utils/-/issues/
+Project-URL: Documentation, https://igwn-auth-utils.readthedocs.io
+Project-URL: Source Code, https://git.ligo.org/computing/igwn-auth-utils.git
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: cryptography>=44.0.1
+Requires-Dist: requests>=2.32.0
+Requires-Dist: safe-netrc>=1.0
+Requires-Dist: scitokens>=1.8
+Provides-Extra: gettoken
+Requires-Dist: htgettoken>=2.1; extra == "gettoken"
+Provides-Extra: kerberos
+Requires-Dist: gssapi>=1.9.0; extra == "kerberos"
+Provides-Extra: docs
+Requires-Dist: furo; extra == "docs"
+Requires-Dist: Sphinx>=4.0.0; extra == "docs"
+Requires-Dist: sphinx-automodapi; extra == "docs"
+Requires-Dist: sphinx-copybutton; extra == "docs"
+Requires-Dist: sphinx-design>=0.6.1; extra == "docs"
+Requires-Dist: sphinx-github-style; extra == "docs"
+Provides-Extra: test
+Requires-Dist: pytest>=3.9.1; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Requires-Dist: requests-mock; extra == "test"
+Dynamic: license-file
+
+# `igwn-auth-utils`
+
+Python library functions to simplify using IGWN authorisation credentials.
+
+<https://igwn-auth-utils.readthedocs.io/>
+
+This project is primarily aimed at discovering X.509 credentials and
+SciTokens for use with HTTP(S) requests to IGWN-operated services.
+
+## Release status
+
+[![PyPI version](https://badge.fury.io/py/igwn-auth-utils.svg)](http://badge.fury.io/py/igwn-auth-utils)
+[![License](https://img.shields.io/pypi/l/igwn-auth-utils.svg)](https://git.ligo.org/computing/igwn-auth-utils/blob/main/LICENSE)
+[![DOI](https://zenodo.org/badge/383081505.svg)](https://zenodo.org/badge/latestdoi/383081505)
+
+## Development status
+
+[![Build status](https://git.ligo.org/computing/igwn-auth-utils/badges/main/pipeline.svg)](https://git.ligo.org/computing/igwn-auth-utils/-/pipelines)
+![Code coverage](https://git.ligo.org/computing/igwn-auth-utils/badges/main/coverage.svg)
+[![Documentation Status](https://readthedocs.org/projects/igwn-auth-utils/badge/?version=latest)](https://igwn-auth-utils.readthedocs.io/en/latest/?badge=latest)
+
+## Installation
+
+The best way to install the latest release is using
+[`conda`](https://conda.io/) with the
+[`conda-forge`](https://conda-forge.org) channel enabled:
+
+```bash
+conda install -c conda-forge igwn-auth-utils
+```
+
+The latest release can also be installed using `pip`:
+
+```bash
+python -m pip install igwn-auth-utils
+```
+
+## Basic usage
+
+To discover an X.509 user credential (proxy) **location**:
+
+```python
+>>> from igwn_auth_utils import find_x509_credentials
+>>> print(find_x509_credentials())
+('/tmp/x509up_u1000', '/tmp/x509up_u1000')
+```
+
+To discover (**and deserialise**) a SciToken for a specific
+purpose (`audience` and `scope`):
+
+```python
+>>> from igwn_auth_utils import find_scitoken
+>>> print(find_scitoken("myservice", "read:/mydata"))
+<scitokens.scitokens.SciToken object at 0x7fe99ab792e0>
+```

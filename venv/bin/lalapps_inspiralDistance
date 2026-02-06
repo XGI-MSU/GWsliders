@@ -1,0 +1,6 @@
+#!/Users/pipermorris/Desktop/GWGUI_copy/venv/bin/python3.11
+import os
+import sys
+from importlib.resources import files, as_file
+with as_file(files('lalapps') / 'bin' / 'lalapps_inspiralDistance') as path:
+    os.execv(path, sys.argv)

@@ -1,0 +1,92 @@
+Metadata-Version: 2.4
+Name: lscsoft-glue
+Version: 4.1.1
+Summary: LSCSoft-GLUE is a collection of utilities for running data analysis pipelines for online and offline analysis as well as accessing various grid utilities.
+Author-email: Duncan Brown <dabrown@syr.edu>
+Maintainer-email: Robert Bruntz <robert.bruntz@ligo.org>, Duncan Macleod <duncan.macleod@ligo.org>
+License: GPL-2.0-or-later
+Project-URL: Bug Tracker, https://git.ligo.org/lscsoft/glue/-/issues
+Project-URL: Documentation, https://lscsoft.docs.ligo.org/glue/
+Project-URL: Source Code, https://git.ligo.org/lscsoft/glue.git
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: igwn-segments
+Provides-Extra: test
+Requires-Dist: lalsuite; python_version < "3.13" and extra == "test"
+Requires-Dist: pytest; extra == "test"
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == "docs"
+Requires-Dist: sphinx_rtd_theme; extra == "docs"
+Dynamic: license-file
+
+# LSCSoft-GLUE: the LSCSoft Grid LSC User Environment
+
+LSCSoft-GLUE is a collection of utilities for running data analysis pipelines
+for online and offline analysis as well as accessing various grid utilities.
+
+Please refer to the online documentation:
+
+https://lscsoft.docs.ligo.org/glue/
+
+GLUE is distributed under the GNU General Public License, version 3 (or later).
+See the file `LICENSE` for more information.
+
+## Installation
+
+### Conda
+
+LSCSoft-GLUE is available from conda-forge as
+[`lscsoft-glue`](https://anaconda.org/conda-forge/lscsoft-glue/);
+to install:
+
+```shell
+conda install -c conda-forge lscsoft-glue
+```
+
+### Debian Linux
+
+LSCSoft-GLUE is distributed for Debian in the
+[LSCSoft Debian Repositories](https://computing.docs.ligo.org/guide/software/debian/)
+for Debian 10 (Buster) and Debian 11 (Bullseye); to install:
+
+```shell
+apt-get install python3-lscsoft-glue
+```
+
+to install only the Python 3 library.
+
+### Enterprise Linux
+
+LSCSoft-GLUE is distributed for Enterprise Linux in the LSCSoft
+[EL7](https://computing.docs.ligo.org/guide/software/sl7/) and
+[EL8](https://computing.docs.ligo.org/guide/software/rl8/)
+repositories; to install:
+
+```shell
+dnf install python3-lscsoft-glue
+```
+
+### PyPI
+
+LSCSoft-GLUE is available from PyPI as
+[`lscsoft-glue`](https://pypi.org/project/lscsoft-glue);
+to install:
+
+```shell
+python -m pip install lscsoft-glue
+```

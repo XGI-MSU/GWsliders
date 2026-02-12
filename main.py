@@ -60,13 +60,19 @@ chi_text.set_fontsize(7)
 
 # function to handle checkbox changes
 def checkbox_update(val):
-    print("=== CHECKBOX UPDATE START ===")
     global slider_axes, sliders
-    slider_val = get_comp_params(sliders)
-    print(f"Current slider values: {slider_val}")
+
+    # if sliders are already removed, skip
+    if len(sliders) == 0:
+        return
     
+    slider_val = get_comp_params(sliders)
+    
+     # Check if spins are valid
+    spins_valid = (slider_val[2] >= chi1_min and slider_val[2] <= chi1_max and 
+                   slider_val[3] >= chi2_min and slider_val[3] <= chi2_max)
+
     # remove old sliders
-    print("Removing sliders...")
     remove_sliders(slider_axes, sliders)
     # store current detector 
     global det, data_line, residual_line
@@ -79,32 +85,34 @@ def checkbox_update(val):
     real_data_checked = checkboxes.get_status()[2]  
     residuals_checked= checkboxes.get_status()[4]
     # ensure parameters and plot don't update when checkboxes clicked
+    if spins_valid:
+        if not real_data_checked:
+            global GW_signal
+            GW_signal = GW_simulated
+            fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(slider_val, GW_signal, det)
+            data_line.set_xdata(times)
+            data_line.set_ydata(data)
+            ymax = np.max(np.abs(data))
+            ax.set_xlim(0.30, 0.50)
+            ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
+        # show residuals plot when checkbox clicked
+        if residuals_checked:
+            fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(slider_val, GW_signal, det)
+            residuals= data - fit
+            residual_line.set_xdata(times)
+            residual_line.set_ydata(residuals)
+            residual_line.set_visible(True)
+        else:   
+            residual_line.set_visible(False) 
 
-    if not real_data_checked:
-        global GW_signal
-        GW_signal = GW_simulated
+        # update data which is plotted
         fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(slider_val, GW_signal, det)
         data_line.set_xdata(times)
         data_line.set_ydata(data)
         ymax = np.max(np.abs(data))
-        ax.set_xlim(0.30, 0.50)
         ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
-    # show residuals plot when checkbox clicked
-    if residuals_checked:
-        fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(slider_val, GW_signal, det)
-        residuals= data - fit
-        residual_line.set_xdata(times)
-        residual_line.set_ydata(residuals)
-        residual_line.set_visible(True)
-    else:   
-        residual_line.set_visible(False) 
-
-    # update data which is plotted
-    fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(slider_val, GW_signal, det)
-    data_line.set_xdata(times)
-    data_line.set_ydata(data)
-    ymax = np.max(np.abs(data))
-    ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
+    else:
+        print("Spins out of range, skipping data update in checkbox_update")
     # Rebuild legend in same location
     ax.legend(loc='upper left', fontsize=6)
     ax.tick_params(axis='both', labelsize=6)
@@ -114,8 +122,7 @@ def checkbox_update(val):
     # remove initial position ticks on each slider
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
-    print(f"New sliders created: {len(sliders)}")
-    print("=== CHECKBOX UPDATE END ===")
+    
 
      # # Disconnect old sliders
     slider_cids.clear() 
@@ -137,7 +144,9 @@ def slider_update(val):
     params = get_comp_params(sliders)
     # check if spins are in domain, if they are outside of domain display error message
     if params[2] < chi1_min or params[2] > chi1_max or params[3] < chi2_min or params[3] > chi2_max:
-        fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(params, GW_signal, det)
+        #fit, data, times, SNRmax, amp, phase = wrapped_matched_filter(params, GW_signal, det)
+        times = data_line.get_xdata()
+        data = data_line.get_ydata()
         # if out of range, zero out data
         zero_fit = np.zeros_like(data)
         fit_line.set_data(times, zero_fit)
@@ -218,7 +227,7 @@ def button_push_signals(event):
     checkbox_update(event)
     ymax = np.max(np.abs(data))
     ax.set_xlim(0.30, 0.5)
-    ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
+    ax.set_ylim(-1.2 * ymax, 1.2 * ymax)
     fig.canvas.draw_idle()
     return 
 
@@ -235,8 +244,8 @@ def button_push_signals1(event):
     data_line.set_ydata(data)
     checkbox_update(event)
     ymax = np.max(np.abs(data))
-    ax.set_xlim(-0.05, 0.15)
-    ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
+    ax.set_xlim(-0.05, 0.13)
+    ax.set_ylim(-1.2 * ymax, 1.2 * ymax)
     fig.canvas.draw_idle()
     return 
 
@@ -271,7 +280,7 @@ def button_push_signals3(event):
     residual_line.set_ydata(residuals)
     checkbox_update(event)
     ymax = np.max(np.abs(data))
-    ax.set_xlim(-0.10, 0.10)
+    ax.set_xlim(-0.15, 0.075)
     ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
     fig.canvas.draw_idle()
     return 
@@ -290,7 +299,7 @@ def button_push_signals4(event):
     checkbox_update(event)
     ymax = np.max(np.abs(data))
     ax.set_xlim(-0.10, 0.2)
-    ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
+    ax.set_ylim(-1.2 * ymax, 1.2 * ymax)
     fig.canvas.draw_idle()
     return 
 
@@ -343,7 +352,7 @@ def button_push_signals7(event):
     residual_line.set_ydata(residuals)
     checkbox_update(event)
     ymax = np.max(np.abs(data))
-    ax.set_xlim(-0.05, 0.15)
+    ax.set_xlim(-0.08, 0.12)
     ax.set_ylim(-1.1 * ymax, 1.1 * ymax)
     fig.canvas.draw_idle()
     return 

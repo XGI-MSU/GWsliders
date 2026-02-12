@@ -7,12 +7,29 @@ from pycbc.conversions import mchirp_from_mass1_mass2, spin1z_from_mass1_mass2_c
 from pycbc.conversions import mass1_from_mchirp_q, mass2_from_mchirp_q
 
 
+
 # function to remove sliders (so they may be replaced with others)
 def remove_sliders(slider_axes, sliders):
-    for ax in slider_axes:
-        ax.remove()
+    # First disconnect all slider events
     for slider in sliders:
-        slider.disconnect_events()
+        try:
+            slider.disconnect_events()
+        except (AttributeError, ValueError):
+            pass
+    
+    # Then remove axes safely
+    for ax in slider_axes:
+        try:
+            # Check if axis is still in the figure
+            if ax.figure is not None and ax in ax.figure.axes:
+                ax.remove()
+        except (KeyError, AttributeError, ValueError) as e:
+            print(f"Skipping already removed axis")
+    
+    # Clear the lists
+    slider_axes.clear()
+    sliders.clear()
+    
 # instatiate detector 
 det_state = {'det': 'H1'}
 # function to make checkboxes

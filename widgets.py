@@ -7,7 +7,6 @@ from pycbc.conversions import mchirp_from_mass1_mass2, spin1z_from_mass1_mass2_c
 from pycbc.conversions import mass1_from_mchirp_q, mass2_from_mchirp_q
 
 
-
 # function to remove sliders (so they may be replaced with others)
 def remove_sliders(slider_axes, sliders):
     # First disconnect all slider events
@@ -29,7 +28,6 @@ def remove_sliders(slider_axes, sliders):
     # Clear the lists
     slider_axes.clear()
     sliders.clear()
-    
 # instatiate detector 
 det_state = {'det': 'H1'}
 # function to make checkboxes
@@ -54,42 +52,42 @@ def make_checkboxes(fig):
     #create buttons
     button_ax = fig.add_axes(button_signal)
     button_ax.set_visible(False)  # hidden initially
-    buttons = Button(button_ax, 'GW150914', hovercolor= None)
+    buttons = Button(button_ax, 'GW150914', hovercolor='0.9')
     buttons.label.set_fontsize(6)
 
     button1_ax = fig.add_axes(button1_signal)
     button1_ax.set_visible(False)  # hidden initially
-    buttons1 = Button(button1_ax, 'GW190521', hovercolor= None)
+    buttons1 = Button(button1_ax, 'GW190521', hovercolor='0.9')
     buttons1.label.set_fontsize(6)
 
     button2_ax = fig.add_axes(button2_signal)
     button2_ax.set_visible(False)  # hidden initially
-    buttons2 = Button(button2_ax, 'GW200129', hovercolor= None)
+    buttons2 = Button(button2_ax, 'GW200129', hovercolor='0.9')
     buttons2.label.set_fontsize(6)
 
     button3_ax = fig.add_axes(button3_signal)
     button3_ax.set_visible(False)  # hidden initially
-    buttons3 = Button(button3_ax, 'GW200224', hovercolor= None)
+    buttons3 = Button(button3_ax, 'GW200224', hovercolor='0.9')
     buttons3.label.set_fontsize(6)
 
     button4_ax = fig.add_axes(button4_signal)
     button4_ax.set_visible(False)  # hidden initially
-    buttons4 = Button(button4_ax, 'GW200311', hovercolor= None)
+    buttons4 = Button(button4_ax, 'GW200311', hovercolor='0.9')
     buttons4.label.set_fontsize(6)
 
     button5_ax= fig.add_axes(button5_signal)
     button5_ax.set_visible(False)  #hidden initially
-    buttons5= Button(button5_ax, 'GW191109', hovercolor= None)
+    buttons5= Button(button5_ax, 'GW191109', hovercolor='0.9')
     buttons5.label.set_fontsize(6)
 
     button6_ax= fig.add_axes(button6_signal)
     button6_ax.set_visible(False)  #hidden initially
-    buttons6= Button(button6_ax, 'GW190828', hovercolor= None)
+    buttons6= Button(button6_ax, 'GW190828', hovercolor='0.9')
     buttons6.label.set_fontsize(6)
 
     button7_ax= fig.add_axes(button7_signal)
     button7_ax.set_visible(False) #hidden initially
-    buttons7= Button(button7_ax, 'GW190519', hovercolor= None)
+    buttons7= Button(button7_ax, 'GW190519', hovercolor='0.9')
     buttons7.label.set_fontsize(6)
 
     # Checkbox toggle 
@@ -175,7 +173,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
         slider3 = Slider(ax=ax3, label=chi1_label, valmin=chi1_min, valmax=chi1_max, valinit= chi1_init,  color= 'C2', handle_style={"size": 6.5})
         slider4 = Slider(ax=ax4, label=chi2_label, valmin=chi2_min, valmax=chi2_max, valinit= chi2_init,  color= 'C2', handle_style={"size": 6.5})
     
-    slider5 = Slider(ax=ax5, label=amp_label, valmin=1e-24, valmax=1e-23, valinit= 5e-23,  color= '0.65', handle_style={"size": 6.5})
+    slider5 = Slider(ax=ax5, label=amp_label, valmin=1e-24, valmax=1e-22, valinit= 1e-23,  color= '0.65', handle_style={"size": 6.5})
     slider6 = Slider(ax=ax6, label=phase_label, valmin= -np.pi, valmax= np.pi, valinit= 0,  color= '0.65', handle_style={"size": 6.5})
     # store sliders and axes
     slider_axes = [ax1, ax2, ax3, ax4, ax5, ax6]
@@ -191,7 +189,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
 # make button to go to correct (or MAP) parameter values
 def make_button(fig):
     button_ax = fig.add_axes(button_rect)
-    button = Button(button_ax, 'Reference Parameters',  hovercolor= None)
+    button = Button(button_ax, 'Reference Parameters', hovercolor='0.9')
     button.label.set_fontsize(6)
     return button
 
@@ -199,17 +197,17 @@ def make_button(fig):
 # function to get component parameters from sliders and checkboxes
 def get_comp_params(sliders):
     # convert slider parameters to component parameters
-    if sliders[0].label.get_text() is chirp_label and sliders[2].label.get_text() is spin_plus_label:
+    if sliders[0].label.get_text() == chirp_label and sliders[2].label.get_text() == spin_plus_label:
         m1 = mass1_from_mchirp_q(sliders[0].val, 1./sliders[1].val)
         m2 = mass2_from_mchirp_q(sliders[0].val, 1./sliders[1].val)
         chi1 = spin1z_from_mass1_mass2_chi_eff_chi_a(m1, m2, sliders[2].val, sliders[3].val)
         chi2 = spin2z_from_mass1_mass2_chi_eff_chi_a(m1, m2, sliders[2].val, sliders[3].val)
-    elif sliders[0].label.get_text() is chirp_label:
+    elif sliders[0].label.get_text() == chirp_label:
         m1 = mass1_from_mchirp_q(sliders[0].val, 1./sliders[1].val)
         m2 = mass2_from_mchirp_q(sliders[0].val, 1./sliders[1].val)
         chi1 = sliders[2].val
         chi2 = sliders[3].val
-    elif sliders[2].label.get_text() is spin_plus_label:
+    elif sliders[2].label.get_text() == spin_plus_label:
         m1 = sliders[0].val
         m2 = sliders[1].val
         chi1 = spin1z_from_mass1_mass2_chi_eff_chi_a(m1, m2, sliders[2].val, sliders[3].val)
@@ -227,7 +225,7 @@ def get_slider_params(params, checkboxes):
     # unpack parameter values
     m1, m2, chi1, chi2 = params.copy()
     # get status of checkboxes
-    chirp_q_checked, plus_minus_checked, real_data_checked = checkboxes.get_status()
+    chirp_q_checked, plus_minus_checked, _, _, _ = checkboxes.get_status()
     if chirp_q_checked:
         params[0] = mchirp_from_mass1_mass2(m1, m2)
         params[1] = m2 / m1
@@ -235,5 +233,4 @@ def get_slider_params(params, checkboxes):
         params[2] = chi_eff(m1, m2, chi1, chi2)
         params[3] = chi_a(m1, m2, chi1, chi2)
     return params
-
 

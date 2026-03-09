@@ -47,48 +47,48 @@ def make_checkboxes(fig):
     checkboxes = CheckButtons(checkbox_ax, checkbox_labels, init_status)
      # change font size 
     for text in checkboxes.labels:
-        text.set_fontsize(6)
+        text.set_fontsize(7)
 
     #create buttons
     button_ax = fig.add_axes(button_signal)
     button_ax.set_visible(False)  # hidden initially
     buttons = Button(button_ax, 'GW150914', hovercolor='0.9')
-    buttons.label.set_fontsize(6)
+    buttons.label.set_fontsize(7)
 
     button1_ax = fig.add_axes(button1_signal)
     button1_ax.set_visible(False)  # hidden initially
     buttons1 = Button(button1_ax, 'GW190521', hovercolor='0.9')
-    buttons1.label.set_fontsize(6)
+    buttons1.label.set_fontsize(7)
 
     button2_ax = fig.add_axes(button2_signal)
     button2_ax.set_visible(False)  # hidden initially
     buttons2 = Button(button2_ax, 'GW200129', hovercolor='0.9')
-    buttons2.label.set_fontsize(6)
+    buttons2.label.set_fontsize(7)
 
     button3_ax = fig.add_axes(button3_signal)
     button3_ax.set_visible(False)  # hidden initially
     buttons3 = Button(button3_ax, 'GW200224', hovercolor='0.9')
-    buttons3.label.set_fontsize(6)
+    buttons3.label.set_fontsize(7)
 
     button4_ax = fig.add_axes(button4_signal)
     button4_ax.set_visible(False)  # hidden initially
     buttons4 = Button(button4_ax, 'GW200311', hovercolor='0.9')
-    buttons4.label.set_fontsize(6)
+    buttons4.label.set_fontsize(7)
 
     button5_ax= fig.add_axes(button5_signal)
     button5_ax.set_visible(False)  #hidden initially
     buttons5= Button(button5_ax, 'GW191109', hovercolor='0.9')
-    buttons5.label.set_fontsize(6)
+    buttons5.label.set_fontsize(7)
 
     button6_ax= fig.add_axes(button6_signal)
     button6_ax.set_visible(False)  #hidden initially
     buttons6= Button(button6_ax, 'GW190828', hovercolor='0.9')
-    buttons6.label.set_fontsize(6)
+    buttons6.label.set_fontsize(7)
 
     button7_ax= fig.add_axes(button7_signal)
     button7_ax.set_visible(False) #hidden initially
     buttons7= Button(button7_ax, 'GW190519', hovercolor='0.9')
-    buttons7.label.set_fontsize(6)
+    buttons7.label.set_fontsize(7)
 
     # Checkbox toggle 
     def on_checkbox_click(label):
@@ -161,28 +161,28 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
     # make sliders
     if chirp_q_checked:     
         chirp_true = mchirp_from_mass1_mass2(m1_true, m2_true)
-        slider1 = Slider(ax=ax1, label=chirp_label, valmin=chirp_true - 10, valmax=chirp_true + 10, valinit= chirp_init, color= 'C2', handle_style={"size": 6.5})
-        slider2 = Slider(ax=ax2, label=ratio_label, valmin=ratio_min, valmax=ratio_max, valinit=ratio_init,  color= 'C2', handle_style={"size": 6.5})
+        slider1 = Slider(ax=ax1, label=chirp_label, valmin=chirp_true - 10, valmax=chirp_true + 10, valinit= chirp_init, color= 'C2', handle_style={"size": 7})
+        slider2 = Slider(ax=ax2, label=ratio_label, valmin=ratio_min, valmax=ratio_max, valinit=ratio_init,  color= 'C2', handle_style={"size": 7})
     else:
-        slider1 = Slider(ax=ax1, label=m1_label, valmin=m1_true - 10, valmax=m1_true + 10, valinit= m1_init, color= 'C2', handle_style={"size": 6.5})
-        slider2 = Slider(ax=ax2, label=m2_label, valmin=m2_true - 10, valmax=m2_true + 10, valinit= m2_init,  color= 'C2', handle_style={"size": 6.5})
+        slider1 = Slider(ax=ax1, label=m1_label, valmin=m1_true - 10, valmax=m1_true + 10, valinit= m1_init, color= 'C2', handle_style={"size": 7})
+        slider2 = Slider(ax=ax2, label=m2_label, valmin=m2_true - 10, valmax=m2_true + 10, valinit= m2_init,  color= 'C2', handle_style={"size": 7})
     if plus_minus_checked:
-        slider3 = Slider(ax=ax3, label=spin_plus_label, valmin=spin_plus_min, valmax=spin_plus_max, valinit= spin_plus_init,  color= 'C2', handle_style={"size": 6.5})
-        slider4 = Slider(ax=ax4, label=spin_minus_label, valmin=spin_minus_min, valmax=spin_minus_max, valinit= spin_minus_init,  color= 'C2', handle_style={"size": 6.5})
+        slider3 = Slider(ax=ax3, label=spin_plus_label, valmin=spin_plus_min, valmax=spin_plus_max, valinit= spin_plus_init,  color= 'C2', handle_style={"size": 7})
+        slider4 = Slider(ax=ax4, label=spin_minus_label, valmin=spin_minus_min, valmax=spin_minus_max, valinit= spin_minus_init,  color= 'C2', handle_style={"size": 7})
     else:
-        slider3 = Slider(ax=ax3, label=chi1_label, valmin=chi1_min, valmax=chi1_max, valinit= chi1_init,  color= 'C2', handle_style={"size": 6.5})
-        slider4 = Slider(ax=ax4, label=chi2_label, valmin=chi2_min, valmax=chi2_max, valinit= chi2_init,  color= 'C2', handle_style={"size": 6.5})
+        slider3 = Slider(ax=ax3, label=chi1_label, valmin=chi1_min, valmax=chi1_max, valinit= chi1_init,  color= 'C2', handle_style={"size": 7})
+        slider4 = Slider(ax=ax4, label=chi2_label, valmin=chi2_min, valmax=chi2_max, valinit= chi2_init,  color= 'C2', handle_style={"size": 7})
     
-    slider5 = Slider(ax=ax5, label=amp_label, valmin=1e-24, valmax=1e-22, valinit= 1e-23,  color= '0.65', handle_style={"size": 6.5})
-    slider6 = Slider(ax=ax6, label=phase_label, valmin= -np.pi, valmax= np.pi, valinit= 0,  color= '0.65', handle_style={"size": 6.5})
+    slider5 = Slider(ax=ax5, label=amp_label, valmin=1e-24, valmax=1e-22, valinit= 1e-23,  color= '0.65', handle_style={"size": 7})
+    slider6 = Slider(ax=ax6, label=phase_label, valmin= -np.pi, valmax= np.pi, valinit= 0,  color= '0.65', handle_style={"size": 7})
     # store sliders and axes
     slider_axes = [ax1, ax2, ax3, ax4, ax5, ax6]
     sliders = [slider1, slider2, slider3, slider4, slider5, slider6]
     # remove tick marking initial position of sliders
     for slider in sliders:
         slider.ax.get_lines()[0].set_visible(False)
-        slider.label.set_fontsize(5.5)
-        slider.valtext.set_fontsize(5.5)
+        slider.label.set_fontsize(6)
+        slider.valtext.set_fontsize(6)
     return [slider_axes, sliders]
 
 
@@ -190,7 +190,7 @@ def make_sliders(fig, checkboxes, true_comp_params, init_comp_params= None):
 def make_button(fig):
     button_ax = fig.add_axes(button_rect)
     button = Button(button_ax, 'Reference Parameters', hovercolor='0.9')
-    button.label.set_fontsize(6)
+    button.label.set_fontsize(7)
     return button
 
 

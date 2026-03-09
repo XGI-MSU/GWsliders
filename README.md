@@ -4,7 +4,8 @@ In your terminal:
 
 1. navigate to this folder
 
-2. Copy and paste the following to activate the environment: 
+2. Copy and paste the following to activate the environment:
+
     python3.11 -m venv gwslider-env
 
     Mac/linux:

@@ -1,14 +1,21 @@
-## Requirements
-- Python 3.11
-- See requirements.txt for packages
-- git LFS 
+## To use this notebook: 
 
-This repository uses Git Large File Storage (Git LFS) to store large files.
-To download and recover the full versions of these files, follow the steps below.
+In your terminal:
 
-Before cloning the repository:
-1. install git-lfs
-2. run "git lfs install" to initalize lfs
+1. navigate to this file
 
-After cloning: 
-3. run "git lfs pull" 
+2. Copy and paste the following to activate the environment: 
+    python3.11 -m venv gwslider-env
+
+    Mac/linux:
+    source gwslider-env/bin/activate
+
+    windows: gwslider-env\Scripts\activate
+
+    pip install --upgrade pip
+
+    pip install -r requirements.txt
+
+    python -m ipykernel install --user --name gwslider-env --display-name "Python (gwslider-env)"
+
+    Jupyter notebook

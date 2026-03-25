@@ -6,36 +6,27 @@ python3.11 --version
 ```
 If you see `Python 3.11.x`, you are good to go. If not, download it from https://www.python.org/downloads/
 
-> Python 3.12 may also work — if you only have 3.12, try replacing `python3.11` with `python3.12` in all commands below.
 ---
-
-### Step 1: Open your terminal
-
-- **Mac:** Press `Command + Space`, type `Terminal`, press Enter
-- **Windows:** Press the Windows key, type `cmd`, press Enter
-
----
-
-### Step 2: Choose where to put the project
+### Step 1: Choose where to put the project
 
 Decide which folder you want the project to live in. 
 For example, if you want it on your Desktop:
 
 **Mac:**
 ```
-cd ~/Desktop
+cd Desktop
 ```
 **Windows:**
 ```
 cd %USERPROFILE%\Desktop
 ```
-Type one of the above and press Enter. You can replace `Desktop` with any folder you want, for example `cd ~/Documents`.
+You can replace `Desktop` with any folder you want, for example `cd Documents`.
 
 ---
 
-### Step 3: Clone the repository
+### Step 2: Clone the repository
 
-Copy and paste the following into your terminal and press Enter:
+Copy and paste the following into your terminal:
 ```
 git clone https://github.com/XGI-MSU/GWsliders.git
 ```
@@ -46,25 +37,33 @@ cd GWsliders
 
 ---
 
-### Step 4: Set up the environment
+### Step 3: Set up the environment
 
-This installs all the software the notebook needs. Copy and paste these one line at a time, pressing Enter after each one.
+This installs all the software the notebook needs. Copy and paste the following one line at a time.
 
 **Mac/Linux:**
 ```
 python3.11 -m venv gwslider-env
+```
 source gwslider-env/bin/activate
+```
 pip install --upgrade pip
+```
 pip install -r requirements.txt
+```
 python -m ipykernel install --user --name gwslider-env --display-name "Python (gwslider-env)"
 ```
 
 **Windows:**
 ```
 python3.11 -m venv gwslider-env
+```
 gwslider-env\Scripts\activate
+```
 pip install --upgrade pip
+```
 pip install -r requirements.txt
+```
 python -m ipykernel install --user --name gwslider-env --display-name "Python (gwslider-env)"
 ```
 
@@ -72,9 +71,9 @@ python -m ipykernel install --user --name gwslider-env --display-name "Python (g
 
 ---
 
-### Step 5: Open the notebook
+### Step 4: Open the notebook
 
-Copy and paste the following and press Enter:
+Copy and paste the following:
 ```
 jupyter notebook
 ```
@@ -82,7 +81,7 @@ A browser window will open. Click on **[interactive_notebook].ipynb** to open it
 
 ---
 
-### Step 6: Select the correct kernel
+### Step 5: Select the correct kernel
 
 In the top right corner of the notebook, you will see a kernel name. It should say `Python (gwslider-env)`.
 
@@ -90,7 +89,7 @@ In the top right corner of the notebook, you will see a kernel name. It should s
 
 ---
 
-### Step 7: Run the notebook
+### Step 6: Run the notebook
 
 In the top menu, click **Kernel → Restart Kernel and Run All Cells**
 

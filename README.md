@@ -39,42 +39,35 @@ cd GWsliders
 
 ### Step 3: Set up the environment
 
-This installs all the software the notebook needs. Copy and paste the following one line at a time.
+Run the setup script — this will automatically create the environment and install everything the notebook needs:
 
 **Mac/Linux:**
 ```
-python3.11 -m venv gwslider-env
+bash setup.sh
 ```
-source gwslider-env/bin/activate
-```
-pip install --upgrade pip
-```
-pip install -r requirements.txt
-```
-python -m ipykernel install --user --name gwslider-env --display-name "Python (gwslider-env)"
-```
-
 **Windows:**
 ```
-python3.11 -m venv gwslider-env
-```
-gwslider-env\Scripts\activate
-```
+python3.11 -m venv .venv
+.venv\Scripts\activate
 pip install --upgrade pip
-```
 pip install -r requirements.txt
-```
-python -m ipykernel install --user --name gwslider-env --display-name "Python (gwslider-env)"
+python -m ipykernel install --user --name=gwslider-env --display-name "gwslider-env"
 ```
 
-> ⚠️ The `pip install -r requirements.txt` step may take a few minutes — this is normal.
+> ⚠️ The install step may take a few minutes — this is normal.
 
 ---
 
-### Step 4: Open the notebook
+### Step 4: Activate the environment and open the notebook
 
-Copy and paste the following:
+**Mac/Linux:**
 ```
+source .venv/bin/activate
+jupyter notebook
+```
+**Windows:**
+```
+.venv\Scripts\activate
 jupyter notebook
 ```
 A browser window will open. Click on **[interactive_notebook].ipynb** to open it.
@@ -83,9 +76,9 @@ A browser window will open. Click on **[interactive_notebook].ipynb** to open it
 
 ### Step 5: Select the correct kernel
 
-In the top right corner of the notebook, you will see a kernel name. It should say `Python (gwslider-env)`.
+In the top right corner of the notebook, you will see a kernel name. It should say `gwslider-env`.
 
-- If it does not, click on it, select `Python (gwslider-env)` from the list, and click **Select**
+- If it does not, click on it, select `gwslider-env` from the list, and click **Select**
 
 ---
 
@@ -101,10 +94,12 @@ You will need to reactivate the environment before running `jupyter notebook`. I
 
 **Mac/Linux:**
 ```
-source gwslider-env/bin/activate
+source .venv/bin/activate
+jupyter notebook
 ```
 **Windows:**
 ```
-gwslider-env\Scripts\activate
+.venv\Scripts\activate
+jupyter notebook
 ```
 Then repeat Step 5.
